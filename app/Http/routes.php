@@ -1,7 +1,7 @@
 <?php
 
 Route::get('usuarios', ['as' => 'users.index', 'uses' => 'UsersController@index']);
-Route::get('mimimi', ['as' => 'users.index', 'uses' => 'UsersController@mimimi']);
+Route::get('mimimi', ['as' => 'users.mimimi', 'uses' => 'UsersController@mimimi']);
 
 Route::get('api/usuarios/listar', ['as' => 'users.listar', 'uses' => 'UsersController@listar']);
 

@@ -1,16 +1,32 @@
 <script>
+    import VcPagination from './pagination.vue'
+
     export default {
+        
+        components: {
+            VcPagination
+        },
+
         props: ['users'],
 
         data () {
             return {
                 sortProperty: 'name',
                 sortDirection: 1,
-                filterTerm: ''
+                filterTerm: '',
+                pagination: {}
             }
         },
 
         methods: {
+
+            navigate (page) {
+                this.$http.get('/api/usuarios/listar?page='+page).then((req) => {
+                    this.users = req.data.data
+                    this.pagination = req.data
+                })
+            },
+
             sort (ev, property) {
                 ev.preventDefault()
 
@@ -25,7 +41,10 @@
         },
 
         ready () {
-            this.$http.get('/api/usuarios/listar').then((req) => this.users = req.data)
+            this.$http.get('/api/usuarios/listar').then((req) => {
+                this.users = req.data.data
+                this.pagination = req.data
+            })
         }
     }
 </script>
@@ -48,6 +67,9 @@
                 </tr>
             </tbody>
         </table>
+        <div class="text-center">
+            <vc-pagination :source="pagination" @navigate="navigate"></vc-pagination>
+        </div>
     </div>
 </template>
 <style scoped=""></style>

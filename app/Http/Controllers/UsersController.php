@@ -22,6 +22,7 @@ class UsersController extends Controller
 
     public function listar()
     {
-        return \Response::json(User::all(), 200);
+        $users = User::paginate(6);
+        return \Response::json($users, 200);
     }
 }
