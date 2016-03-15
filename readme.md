@@ -5,6 +5,7 @@
 1. Clonar este repositório
     * Branch `master` é o código do video https://www.youtube.com/watch?v=TGSJjDahlrQ
     * Branch `pagination` é o código do video https://www.youtube.com/watch?v=H1dAK9f825Q
+    * Branch `pagination advanced` é o código do video https://www.youtube.com/watch?v=-0IFTI4FYDc
 
 2. Preparar seu ambiente para acessar o projeto no browser
     * Criar um virtual host e cadastrar localmente em `hosts`
